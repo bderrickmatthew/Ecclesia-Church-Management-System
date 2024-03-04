@@ -3,20 +3,12 @@
 try
 {
 
-    $pdo = new PDO('mysql:host=localhost;dbname=ecms;charset=utf8', 'root', '');
-
-    # Set the PDO attribute that controls the error mode (PDO::ATTR_ERRMODE) to the
-    # mode that throws exceptions (PDO::ERRMODE_EXCEPTION).
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    include __DIR__ . '/includes/DatabaseConnection.php';
+    include __DIR__ . '/includes/DatabaseFunctions.php';
 
     $sql = 'SELECT * FROM `members`';
 
-    //$result = $pdo->query($sql);
     $members = $pdo->query($sql);
-
-    //while ($row = $result->fetch()) {
-    //		$members[] = $row;
-    //}
 
     $title = 'List of Members';
 
